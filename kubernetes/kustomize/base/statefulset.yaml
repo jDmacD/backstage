@@ -51,6 +51,21 @@ spec:
                 secretKeyRef:
                   name: central
                   key: POSTGRES_PASSWORD
+            - name: ARGOCD_PASSWORD
+              valueFrom:
+                secretKeyRef:
+            name: backstage
+                  key: ARGOCD_PASSWORD
+            - name: ARGOCD_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: backstage
+                  key: ARGOCD_USERNAME
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: backstage
+                  key: GITHUB_TOKEN
           livenessProbe:
             httpGet:
               path: /healthcheck
