@@ -14,12 +14,15 @@
       "export NODE_OPTIONS=--no-node-snapshot"
     ],
     "scripts": {
-      "run": [
+      "start": [
         "yarn start"
       ],
       "create-token": [
         "kubectl apply -f kubernetes/backstage-sa.yaml",
         "kubectl create token backstage-viewer -n default --duration=8760h"
+      ],
+      "build": [
+        "docker buildx build --platform linux/amd64,linux/arm64 --tag jdmacd/backstage:0.0.1 --push -f Dockerfile ."
       ]
     }
   },
