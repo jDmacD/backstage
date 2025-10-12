@@ -10,6 +10,7 @@ data:
     backend:
       baseUrl: https://backstage.jtec.xyz:443
       listen: ':7007'
+      host: 0.0.0.0
 
       database:
         client: pg

@@ -25,47 +25,11 @@ spec:
             - name: config
               mountPath: /app/app-config.production.yaml
               subPath: app-config.production.yaml
-          env:
-            - name: POSTGRES_URL
-              valueFrom:
-                secretKeyRef:
-                  name: central
-                  key: POSTGRES_URL
-            - name: POSTGRES_HOST
-              valueFrom:
-                secretKeyRef:
-                  name: central
-                  key: POSTGRES_HOST
-            - name: POSTGRES_PORT
-              valueFrom:
-                secretKeyRef:
-                  name: central
-                  key: POSTGRES_PORT
-            - name: POSTGRES_USER
-              valueFrom:
-                secretKeyRef:
-                  name: central
-                  key: POSTGRES_USER
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: central
-                  key: POSTGRES_PASSWORD
-            - name: ARGOCD_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: backstage
-                  key: ARGOCD_PASSWORD
-            - name: ARGOCD_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: backstage
-                  key: ARGOCD_USERNAME
-            - name: GITHUB_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: backstage
-                  key: GITHUB_TOKEN
+          envFrom:
+            - secretRef:
+                name: central
+            - secretRef:
+                name: backstage
           livenessProbe:
             httpGet:
               path: /healthcheck
