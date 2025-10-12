@@ -54,7 +54,7 @@ spec:
             - name: ARGOCD_PASSWORD
               valueFrom:
                 secretKeyRef:
-            - name: backstage
+                  name: backstage
                   key: ARGOCD_PASSWORD
             - name: ARGOCD_USERNAME
               valueFrom:
