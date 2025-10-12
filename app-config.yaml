@@ -66,6 +66,7 @@ auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
   environment: development
   providers:
+    guest: {}
     microsoft:
       development:
         clientId: ${AZURE_CLIENT_ID}
