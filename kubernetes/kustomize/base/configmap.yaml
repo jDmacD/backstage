@@ -24,16 +24,53 @@ data:
         guest: {}
 
     catalog:
+      import:
+        entityFilename: catalog-info.yaml
+        pullRequestBranchName: backstage-integration
+      rules:
+        - allow: [Component, System, API, Resource, Location, Template]
       locations:
+        # Local example data, file locations are relative to the backend process, typically `packages/backend`
         - type: file
-          target: ./examples/entities.yaml
+          target: ../../examples/entities.yaml
 
+        # Local example template
         - type: file
-          target: ./examples/template/template.yaml
+          target: ../../examples/template/template.yaml
+          rules:
+            - allow: [Template]
+        - type: file
+          target: ../../scaffolds/argocd-application/template.yaml
           rules:
             - allow: [Template]
 
+        # Local example organizational data
         - type: file
-          target: ./examples/org.yaml
+          target: ../../examples/org.yaml
           rules:
             - allow: [User, Group]
+
+        ## Uncomment these lines to add more example data
+        # - type: url
+        #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
+
+        ## Uncomment these lines to add an example org
+        # - type: url
+        #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
+        #   rules:
+        #     - allow: [User, Group]
+
+      providers:
+        github:
+          # the provider ID can be any camelCase string
+          providerId:
+            organization: 'jDmacD' # string
+            catalogPath: '/catalog-info.yaml' # string
+            filters:
+              branch: 'main' # string
+              repository: 'catalogue' # Regex
+            schedule: # same options as in SchedulerServiceTaskScheduleDefinition
+              # supports cron, ISO duration, "human duration" as used in code
+              frequency: { minutes: 30 }
+              # supports ISO duration, "human duration" as used in code
+              timeout: { minutes: 3 }
