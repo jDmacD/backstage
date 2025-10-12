@@ -6,6 +6,7 @@ resources:
   - service.yaml
   - serviceaccount.yaml
   - statefulset.yaml
+  - configmap.yaml
 
 labels:
   - pairs:

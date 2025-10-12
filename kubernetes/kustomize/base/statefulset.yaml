@@ -21,6 +21,10 @@ spec:
           ports:
             - containerPort: 7007
               name: http
+          volumeMounts:
+            - name: config
+              mountPath: /app/app-config.production.yaml
+              subPath: app-config.production.yaml
           env:
             - name: POSTGRES_URL
               valueFrom:
@@ -59,3 +63,7 @@ spec:
               port: 7007
             initialDelaySeconds: 30
             periodSeconds: 10
+      volumes:
+        - name: config
+          configMap:
+            name: backstage
