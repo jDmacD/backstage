@@ -12,6 +12,9 @@
       "export ARGOCD_USERNAME=$(echo $BWS_SECRET | jq -r .ARGOCD_USERNAME)",
       "export ARGOCD_PASSWORD=$(echo $BWS_SECRET | jq -r .ARGOCD_PASSWORD)",
       "export GITHUB_TOKEN=$(echo $BWS_SECRET | jq -r .GITHUB_TOKEN)",
+      "export AZURE_CLIENT_ID=$(echo $BWS_SECRET | jq -r .AZURE_CLIENT_ID)",
+      "export AZURE_CLIENT_SECRET=$(echo $BWS_SECRET | jq -r .AZURE_CLIENT_SECRET)",
+      "export AZURE_TENANT_ID=$(echo $BWS_SECRET | jq -r .AZURE_TENANT_ID)",
       "export NODE_OPTIONS=--no-node-snapshot"
     ],
     "scripts": {
