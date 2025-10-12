@@ -88,7 +88,7 @@ catalog:
       rules:
         - allow: [Template]
     - type: file
-      target: ../../../scaffolds/argocd-application/template.yaml
+      target: ../../scaffolds/argocd-application/template.yaml
       rules:
         - allow: [Template]
 
