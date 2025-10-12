@@ -1,0 +1,198 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-template
+kind: Template
+metadata:
+  name: argocd-application-template
+  title: Argo CD Application Template
+  description: A template for creating Argo CD Applications
+spec:
+  owner: user:guest
+  type: application
+  parameters:
+    - title: ArgoCD Application
+      required:
+        - name
+        - owner
+      ui:order:
+        - name
+        - owner
+        - sourcesMessage
+      properties:
+        name:
+          title: Name
+          type: string
+          description: Unique name of the component
+          ui:autofocus: true
+          ui:options:
+            rows: 5
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            catalogFilter:
+              kind: Group
+        sourcesMessage:
+          type: 'null' # Needs to be quoted
+          description: |
+            An ArgoCD application can be deployed from multiple sources
+            - Helm repositories
+            - Kustomize manifests
+            - From both a helm repository and kustomize manifests
+
+    - title: Helm Configuration
+      required:
+        - isHelm
+      ui:order:
+        - isHelm
+        - helmRepoUrl
+        - chartVersion
+        - chartName
+        - chartValuesUrl
+      properties:
+        isHelm:
+          title: Is this deployed using a helm chart?
+          type: boolean
+          default: false
+          ui:widget: radio
+      dependencies:
+        isHelm:
+          allOf:
+            - if:
+                properties:
+                  isHelm:
+                    const: true
+              then:
+                properties:
+                  helmRepoUrl:
+                    title: Repo URL
+                    type: string
+                  chartName:
+                    title: Chart Name
+                    type: string
+                  chartVersion:
+                    title: Version or Tag
+                    type: string
+                  chartValuesUrl:
+                    title: Values Url (usually in the maintainers github)
+                    type: string
+                required:
+                  - helmRepoUrl
+                  - chartName
+                  - chartVersion
+                  - chartValuesUrl
+
+    - title: Kustomize Configuration
+      required:
+        - isKustomize
+      ui:order:
+        - isKustomize
+        - dockerImage
+        - dockerTag
+        - dockerPort
+        - hostName
+        - workloadType
+        - resources
+      properties:
+        isKustomize:
+          title: Is this deployed using kustomize manifests?
+          type: boolean
+          default: false
+          ui:widget: radio
+      dependencies:
+        isKustomize:
+          allOf:
+            - if:
+                properties:
+                  isKustomize:
+                    const: true
+              then:
+                properties:
+                  dockerImage:
+                    title: Docker image
+                    type: string
+                  dockerTag:
+                    title: Docker tag
+                    type: string
+                  dockerPort:
+                    title: Exposed port
+                    type: string
+                  hostName:
+                    title: Hostname
+                    type: string
+                  workloadType:
+                    title: Select a workload type
+                    type: array
+                    items:
+                      type: string
+                      enum:
+                        - deployment
+                        - statefulset
+                    uniqueItems: true
+                    ui:widget: radio
+                  resources:
+                    title: Select resources
+                    type: array
+                    items:
+                      type: string
+                      enum:
+                        - deployment
+                        - service
+                        - httproute
+                        - serviceaccount
+                    uniqueItems: true
+                    ui:widget: checkboxes
+
+
+  # here's the steps that are executed in series in the scaffolder backend
+  steps:
+
+    - id: fetchBase
+      name: Fetch Base
+      action: fetch:template
+      input:
+        url: ./content
+        targetPath: ./${{ parameters.name }}
+        values:
+          name: ${{ parameters.name }}
+          helmRepoUrl: ${{ parameters.helmRepoUrl }}
+          chartVersion: ${{ parameters.chartVersion }}
+          chartValuesUrl: ${{ parameters.chartValuesUrl }}
+
+    - id: createPullRequest
+      name: Create Merge Request
+      action: publish:github:pull-request
+      input:
+        repoUrl: github.com?repo=catalogue&owner=jDmacD
+        branchName: argocd-application-${{ parameters.name }}
+        update: true
+        targetBranchName: main
+        title: Create ArgoCD ${{ parameters.name }} Application
+        description: |
+          This will deploy an Application with the following properties:
+          - ${{ parameters.helmRepoUrl }}
+
+    # - id: publish
+    #   name: Publish
+    #   action: publish:github
+    #   input:
+    #     description: This is ${{ parameters.name }}
+    #     repoUrl: ${{ parameters.repoUrl }}
+    #     defaultBranch: 'main'
+
+    # - id: register
+    #   name: Register
+    #   action: catalog:register
+    #   input:
+    #     repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+    #     catalogInfoPath: '/catalog-info.yaml'
+
+  # some outputs which are saved along with the job for use in the frontend
+  # output:
+  #   links:
+  #     - title: Repository
+  #       url: ${{ steps['publish'].output.remoteUrl }}
+  #     - title: Open in catalog
+  #       icon: catalog
+  #       entityRef: ${{ steps['register'].output.entityRef }}

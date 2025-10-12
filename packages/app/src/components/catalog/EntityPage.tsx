@@ -58,6 +58,11 @@ import {
   isKubernetesAvailable,
 } from '@backstage/plugin-kubernetes';
 
+import {
+  EntityArgoCDOverviewCard,
+  isArgocdAvailable
+} from '@roadiehq/backstage-plugin-argo-cd';
+
 const techdocsContent = (
   <EntityTechdocsContent>
     <TechDocsAddons>
@@ -127,6 +132,13 @@ const entityWarningContent = (
 const overviewContent = (
   <Grid container spacing={3} alignItems="stretch">
     {entityWarningContent}
+    <EntitySwitch>
+      <EntitySwitch.Case if={e => Boolean(isArgocdAvailable(e))}>
+        <Grid item xs={12}>
+          <EntityArgoCDOverviewCard />
+        </Grid>
+      </EntitySwitch.Case>
+    </EntitySwitch>
     <Grid item md={6}>
       <EntityAboutCard variant="gridItem" />
     </Grid>
@@ -156,7 +168,7 @@ const serviceEntityPage = (
     <EntityLayout.Route
       path="/kubernetes"
       title="Kubernetes"
-      if={isKubernetesAvailable}
+      // if={isKubernetesAvailable}
     >
       <EntityKubernetesContent />
     </EntityLayout.Route>

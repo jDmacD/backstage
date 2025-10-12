@@ -1,0 +1,36 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ${{ values.name }}
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  destination:
+    namespace: ${{ values.name }}
+    name: in-cluster
+  sources:
+    - repoURL: ${{ values.helmRepoUrl }}
+      targetRevision: ${{ values.chartVersion }}
+      chart: ${{ values.chartName }}
+      helm:
+        valueFiles:
+        - $values/${{ values.name }}/helm/values.yaml
+    - repoURL: git@github.com:jDmacD/catalogue.git
+      targetRevision: main
+      ref: values
+    - repoURL: git@github.com:jDmacD/catalogue.git
+      targetRevision: main
+      path: ${{ values.name }}/kustomize/base
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=false
+      - Validate=true

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.15.1/.schema/devbox.schema.json",
+  "packages": [
+    "nodejs_24@latest",
+    "yarn@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      "export BWS_SECRET=$(bws secret get 9644eb16-81bf-4b8e-8661-b3730174afba | jq -rc '.value | fromjson')",
+      "export KUBERNETES_TOKEN=$(kubectl create token backstage-viewer -n default --duration=8760h)",
+      "export ARGOCD_USERNAME=$(echo $BWS_SECRET | jq -r .ARGOCD_USERNAME)",
+      "export ARGOCD_PASSWORD=$(echo $BWS_SECRET | jq -r .ARGOCD_PASSWORD)",
+      "export GITHUB_TOKEN=$(echo $BWS_SECRET | jq -r .GITHUB_TOKEN)",
+      "export NODE_OPTIONS=--no-node-snapshot"
+    ],
+    "scripts": {
+      "run": [
+        "yarn start"
+      ],
+      "create-token": [
+        "kubectl apply -f kubernetes/backstage-sa.yaml",
+        "kubectl create token backstage-viewer -n default --duration=8760h"
+      ]
+    }
+  },
+  "env_from": "jetpack-cloud"
+}

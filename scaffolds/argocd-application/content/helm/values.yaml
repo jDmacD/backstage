@@ -1,0 +1,6 @@
+# ${{ values.chartValuesUrl }}
+
+# This is a common attribute in most Helm Charts
+# But you may want to double check
+commonLabels:
+  backstage.io/kubernetes-id: ${{ values.name }}

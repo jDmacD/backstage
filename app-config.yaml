@@ -3,7 +3,7 @@ app:
   baseUrl: http://localhost:3000
 
 organization:
-  name: My Company
+  name: JTEC
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
@@ -76,7 +76,7 @@ catalog:
     entityFilename: catalog-info.yaml
     pullRequestBranchName: backstage-integration
   rules:
-    - allow: [Component, System, API, Resource, Location]
+    - allow: [Component, System, API, Resource, Location, Template]
   locations:
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
     - type: file
@@ -85,6 +85,10 @@ catalog:
     # Local example template
     - type: file
       target: ../../examples/template/template.yaml
+      rules:
+        - allow: [Template]
+    - type: file
+      target: ../../../scaffolds/argocd-application/template.yaml
       rules:
         - allow: [Template]
 
@@ -104,10 +108,60 @@ catalog:
     #   rules:
     #     - allow: [User, Group]
 
+  providers:
+    github:
+      # the provider ID can be any camelCase string
+      providerId:
+        organization: 'jDmacD' # string
+        catalogPath: '/catalog-info.yaml' # string
+        filters:
+          branch: 'main' # string
+          repository: 'catalogue' # Regex
+        schedule: # same options as in SchedulerServiceTaskScheduleDefinition
+          # supports cron, ISO duration, "human duration" as used in code
+          frequency: { minutes: 30 }
+          # supports ISO duration, "human duration" as used in code
+          timeout: { minutes: 3 }
+
 kubernetes:
   # see https://backstage.io/docs/features/kubernetes/configuration for kubernetes configuration options
+  serviceLocatorMethod:
+    type: multiTenant
+  clusterLocatorMethods:
+    - type: config
+      clusters:
+        - url: https://tpi01.lan:6443
+          name: turing # You can use any name you want
+          authProvider: serviceAccount
+          skipTLSVerify: true
+          skipMetricsLookup: false
+          serviceAccountToken: ${KUBERNETES_TOKEN}
+  customResources:
+    - group: 'argoproj.io'
+      apiVersion: 'v1alpha1'
+      plural: 'applications'
+    - group: 'argoproj.io'
+      apiVersion: 'v1alpha1'
+      plural: 'applicationsets'
+    - group: 'gateway.networking.k8s.io'
+      apiVersion: 'v1'
+      plural: 'gateways'
+    - group: 'gateway.networking.k8s.io'
+      apiVersion: 'v1'
+      plural: 'httproutes'
+
 
 # see https://backstage.io/docs/permissions/getting-started for more on the permission framework
 permission:
   # setting this to `false` will disable permissions
   enabled: true
+
+argocd:
+  username: ${ARGOCD_USERNAME}
+  password: ${ARGOCD_PASSWORD}
+  appLocatorMethods:
+    - type: 'config'
+      instances:
+        - name: control
+          url: https://argocd.jtec.xyz
+          token: ${ARGOCD_AUTH_TOKEN}
