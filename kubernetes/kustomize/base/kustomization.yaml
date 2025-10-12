@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - externalsecret.yaml
+  - httproute.yaml
+  - service.yaml
+  - serviceaccount.yaml
+  - statefulset.yaml
+
+labels:
+  - pairs:
+      backstage.io/kubernetes-id: backstage
+    includeSelectors: false
+    includeTemplates: true
+
+# https://hub.docker.com/r/backstage/backstage/tags
+images:
+  - name: ghcr.io/jdmacd/backstage
+    newTag: main

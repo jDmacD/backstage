@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backstage
+  labels:
+    app: backstage
+spec:
+  ports:
+    - port: 80
+      targetPort: 7007
+      name: http
+  selector:
+    app: backstage
