@@ -15,11 +15,15 @@ on:
     paths:
       - 'packages/**'
       - '.github/workflows/docker-publish.yml'
+      - 'package.json'
+      - 'yarn.lock'
   pull_request:
     branches: [ "main" ]
     paths:
       - 'packages/**'
       - '.github/workflows/docker-publish.yml'
+      - 'package.json'
+      - 'yarn.lock'
 
 env:
   # Use docker.io for Docker Hub if empty
