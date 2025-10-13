@@ -39,6 +39,7 @@ import { NotificationsPage } from '@backstage/plugin-notifications';
 import { SignalsDisplay } from '@backstage/plugin-signals';
 // https://backstage.io/docs/auth/#sign-in-configuration
 import { microsoftAuthApiRef } from '@backstage/core-plugin-api';
+import { githubAuthApiRef } from '@backstage/core-plugin-api';
 
 
 const app = createApp({
@@ -65,13 +66,19 @@ const app = createApp({
       <SignInPage
         {...props}
         providers={[
-          'guest',
+          // 'guest',
           {
             id: 'microsoft-auth-provider',
             title: 'Azure',
             message: 'Sign in using Azure',
             apiRef: microsoftAuthApiRef,
           },
+          // {
+          //   id: 'github-auth-provider',
+          //   title: 'GitHub',
+          //   message: 'Sign in using GitHub',
+          //   apiRef: githubAuthApiRef,
+          // },
         ]}
       />
     ),
