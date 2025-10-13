@@ -1,7 +1,7 @@
 dockerImage: backstage
 dockerFile: Dockerfile
 dockerRegistry: ghcr.io
-dockerProject: jDmacD
+dockerProject: jdmacd
 
 branches:
   - main
