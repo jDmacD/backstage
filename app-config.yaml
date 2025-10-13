@@ -128,17 +128,23 @@ catalog:
   providers:
     github:
       # the provider ID can be any camelCase string
-      providerId:
+      # staticProviderId:
+      #   organization: 'jDmacD' # string
+      #   catalogPath: '/catalog-info.yaml' # string
+      #   filters:
+      #     branch: 'main' # string
+      #     repository: 'catalogue' # Regex
+      #   schedule: # same options as in SchedulerServiceTaskScheduleDefinition
+      #     # supports cron, ISO duration, "human duration" as used in code
+      #     frequency: { minutes: 30 }
+      #     # supports ISO duration, "human duration" as used in code
+      #     timeout: { minutes: 3 }
+      wildcardProviderId:
         organization: 'jDmacD' # string
-        catalogPath: '/catalog-info.yaml' # string
-        filters:
-          branch: 'main' # string
-          repository: 'catalogue' # Regex
-        schedule: # same options as in SchedulerServiceTaskScheduleDefinition
-          # supports cron, ISO duration, "human duration" as used in code
-          frequency: { minutes: 30 }
-          # supports ISO duration, "human duration" as used in code
-          timeout: { minutes: 3 }
+        catalogPath: '/**/catalog-info.yaml'
+        filters: # optional filters
+          branch: 'main' # optional string
+          repository: 'catalogue' # optional Regex
           
     microsoftGraphOrg:
       default:
