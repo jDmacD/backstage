@@ -5,7 +5,7 @@ resources:
   - httproute.yaml
   - service.yaml
   - serviceaccount.yaml
-  - statefulset.yaml
+  - deployment.yaml
   - configmap.yaml
 
 labels:
