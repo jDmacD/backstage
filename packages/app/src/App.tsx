@@ -39,7 +39,6 @@ import { NotificationsPage } from '@backstage/plugin-notifications';
 import { SignalsDisplay } from '@backstage/plugin-signals';
 // https://backstage.io/docs/auth/#sign-in-configuration
 import { microsoftAuthApiRef } from '@backstage/core-plugin-api';
-import { githubAuthApiRef } from '@backstage/core-plugin-api';
 
 
 const app = createApp({

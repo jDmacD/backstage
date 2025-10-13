@@ -66,7 +66,6 @@ import {
 import {
   EntityGithubActionsContent,
   isGithubActionsAvailable,
-  EntityRecentGithubActionsRunsCard,
 } from '@backstage-community/plugin-github-actions';
 
 const techdocsContent = (
