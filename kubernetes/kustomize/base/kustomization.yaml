@@ -17,4 +17,4 @@ labels:
 # https://hub.docker.com/r/backstage/backstage/tags
 images:
   - name: ghcr.io/jdmacd/backstage
-    newTag: main
+    newTag: sha256-7072bc74bdc22d9638fc0cfd7d69aac256236cfe5c282fcf05289b1282324c48.sig
