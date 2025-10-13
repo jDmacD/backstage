@@ -38,7 +38,11 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Install dependencies
-        run: yarn add -D @codedependant/semantic-release-docker
+        run: |
+          mv package.json package.json.bak
+          yarn init -y
+          yarn add -D @codedependant/semantic-release-docker
+          mv package.json.bak package.json
 
       - name: Release
         env:
