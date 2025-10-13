@@ -115,30 +115,8 @@ catalog:
       rules:
         - allow: [User, Group]
 
-    ## Uncomment these lines to add more example data
-    # - type: url
-    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
-
-    ## Uncomment these lines to add an example org
-    # - type: url
-    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
-    #   rules:
-    #     - allow: [User, Group]
-
   providers:
     github:
-      # the provider ID can be any camelCase string
-      # staticProviderId:
-      #   organization: 'jDmacD' # string
-      #   catalogPath: '/catalog-info.yaml' # string
-      #   filters:
-      #     branch: 'main' # string
-      #     repository: 'catalogue' # Regex
-      #   schedule: # same options as in SchedulerServiceTaskScheduleDefinition
-      #     # supports cron, ISO duration, "human duration" as used in code
-      #     frequency: { minutes: 30 }
-      #     # supports ISO duration, "human duration" as used in code
-      #     timeout: { minutes: 3 }
       wildcardProviderId:
         organization: 'jDmacD' # string
         catalogPath: '/**/catalog-info.yaml'

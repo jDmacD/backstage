@@ -9,4 +9,8 @@ scaffolds
 devbox.*
 .devbox
 .jetify
+.venv
 kubernetes
+app-config.local.yaml
+app-config.production.yaml
+app-config.yaml
