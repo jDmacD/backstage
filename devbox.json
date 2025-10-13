@@ -3,7 +3,8 @@
   "packages": [
     "nodejs_24@latest",
     "yarn@latest",
-    "python@latest"
+    "python@latest",
+    "commitizen@4.8.3"
   ],
   "shell": {
     "init_hook": [
