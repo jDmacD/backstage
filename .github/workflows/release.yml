@@ -39,10 +39,7 @@ jobs:
       
       - name: Install dependencies
         run: |
-          mv package.json package.json.bak
-          yarn init -y
           yarn add -D @codedependant/semantic-release-docker
-          mv package.json.bak package.json
 
       - name: Release
         env:
