@@ -4,7 +4,8 @@
     "nodejs_24@latest",
     "yarn@latest",
     "python@latest",
-    "commitizen@4.8.3"
+    "commitizen@4.8.3",
+    "pre-commit@latest"
   ],
   "shell": {
     "init_hook": [
@@ -33,6 +34,9 @@
       ],
       "build-slim": [
         "docker buildx build --platform linux/amd64,linux/arm64 --tag jdmacd/backstage-slim:0.0.1 --push -f slim.Dockerfile ."
+      ],
+      "config-gen": [
+        "kubectl create configmap backstage --from-literal=app-config.yaml=\"$(yq app-config.yaml)\"  --from-literal=app-config.production.yaml=\"$(yq app-config.production.yaml)\" -o yaml --dry-run=client > kubernetes/kustomize/base/configmap.yaml"
       ]
     }
   },
