@@ -46,5 +46,7 @@ jobs:
 
       - name: Release
         env:
+          DOCKER_REGISTRY_USER: ${{ github.actor }}
+          DOCKER_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: yarn dlx semantic-release
