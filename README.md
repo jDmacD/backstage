@@ -23,24 +23,23 @@ SELECT
     'kind', 'Component',
     'metadata', jsonb_build_object(
       'name', name,
-      'namespace', destination::jsonb ->> 'namespace',
       'annotations', jsonb_build_object(
         'argocd/app-name', name,
         'backstage.io/kubernetes-id', name
-      ),
-    )
+      )
+    ),
     'spec', jsonb_build_object(
       'type', 'website',
-      'lifecycle', 'production',
+      'lifecycle', 'experimental',
       'owner', 'user:default/jmacdonald_jtec.xyz',
-      'system', 'turing',
-      'dependsOn', json_build_array(
-        'resource:turing'
+      'system', 'examples',
+      'dependsOn', jsonb_build_array(
+        'resource:turing',
+        'component:cilium'
       )
     )
-  ) as result
-FROM 
-  kubernetes_application
+  ) AS result
+FROM kubernetes_application;
 ```
 The configuration would look something like
 
