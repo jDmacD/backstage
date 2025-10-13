@@ -75,3 +75,16 @@ data:
               frequency: { minutes: 30 }
               # supports ISO duration, "human duration" as used in code
               timeout: { minutes: 3 }
+
+    kubernetes:
+      # see https://backstage.io/docs/features/kubernetes/configuration for kubernetes configuration options
+      serviceLocatorMethod:
+        type: multiTenant
+      clusterLocatorMethods:
+        - type: config
+          clusters:
+            - url: https://kubernetes.default.svc
+              name: turing # You can use any name you want
+              authProvider: serviceAccount
+              skipTLSVerify: true
+              skipMetricsLookup: false
