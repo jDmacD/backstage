@@ -1,0 +1,12 @@
+dockerImage: backstage
+dockerFile: Dockerfile
+dockerRegistry: ghcr.io
+dockerProject: jDmacD/backstage
+
+branches:
+  - main
+plugins:
+  - "@semantic-release/commit-analyzer"
+  - "@semantic-release/release-notes-generator"
+  - "@semantic-release/github"
+  - "@codedependant/semantic-release-docker"
