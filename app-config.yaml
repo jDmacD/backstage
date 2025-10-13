@@ -132,6 +132,19 @@ catalog:
           frequency: { minutes: 30 }
           # supports ISO duration, "human duration" as used in code
           timeout: { minutes: 3 }
+          
+    microsoftGraphOrg:
+      default:
+        tenantId: ${AZURE_TENANT_ID}
+        # user:
+        #   filter: accountEnabled eq true and userType eq 'member'
+        # group:
+        #   filter: >
+        #     securityEnabled eq false
+        #     and groupTypes/any(c:c eq 'Unified')
+        schedule:
+          frequency: PT1H
+          timeout: PT50M
 
 kubernetes:
   # see https://backstage.io/docs/features/kubernetes/configuration for kubernetes configuration options
