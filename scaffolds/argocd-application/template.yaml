@@ -32,7 +32,9 @@ spec:
           ui:field: OwnerPicker
           ui:options:
             catalogFilter:
-              kind: Group
+              kind:
+               - Group
+               - User
         sourcesMessage:
           type: 'null' # Needs to be quoted
           description: |
