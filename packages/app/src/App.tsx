@@ -43,6 +43,9 @@ import { microsoftAuthApiRef } from '@backstage/core-plugin-api';
 import { HomepageCompositionRoot } from '@backstage/plugin-home';
 import { HomePage } from './components/home/HomePage';
 
+// must be last
+import { DevToolsPage } from '@backstage/plugin-devtools';
+import { customDevToolsPage } from './components/devtools/CustomDevToolsPage';
 
 const app = createApp({
   apis,
@@ -124,6 +127,9 @@ const routes = (
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
     <Route path="/notifications" element={<NotificationsPage />} />
+    <Route path="/devtools" element={<DevToolsPage />} >
+      {customDevToolsPage}
+    </Route>
   </FlatRoutes>
 );
 

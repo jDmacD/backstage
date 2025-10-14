@@ -79,4 +79,7 @@ backend.add(import('@backstage/plugin-signals-backend'));
 backend.add(import('@roadiehq/backstage-plugin-argo-cd-backend'));
 backend.add(import('@roadiehq/scaffolder-backend-module-utils'));
 
+// https://github.com/backstage/backstage/blob/master/plugins/devtools-backend/README.md
+backend.add(import('@backstage/plugin-devtools-backend'));
+
 backend.start();
