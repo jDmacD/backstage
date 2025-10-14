@@ -157,18 +157,12 @@ data:
             - allow: [User, Group]
       providers:
         github:
-          wildcardProviderId:
-            organization: 'jDmacD'
-            catalogPath: '/**/catalog-info.yaml'
-            filters:
-              branch: 'main'
-              repository: 'catalogue'
           wildcardEntityId:
             organization: 'jDmacD'
-            catalogPath: '/entities/**/*.yaml'
+            catalogPath: '/**/*.yaml'
             filters:
               branch: 'main'
-              repository: 'backstage'
+              repository: 'backstage-entities'
         microsoftGraphOrg:
           default:
             tenantId: ${AZURE_TENANT_ID}
@@ -226,6 +220,30 @@ data:
             - name: control
               url: https://argocd.jtec.xyz
               token: ${ARGOCD_AUTH_TOKEN}
+    kubernetesIngestor:
+      # Resource mapping configuration
+      mappings:
+        namespaceModel: 'cluster'
+        nameModel: 'name-cluster'
+        titleModel: 'name'
+        systemModel: 'default'
+        referencesNamespaceModel: 'default'
+      # Component ingestion settings
+      components:
+        enabled: true
+        taskRunner:
+          frequency: 10
+          timeout: 600
+        excludedNamespaces:
+          - kube-public
+          - kube-system
+        customWorkloadTypes:
+          - group: pkg.crossplane.io
+            apiVersion: v1
+            plural: providers
+      # Crossplane integration
+      crossplane:
+        enabled: false
 kind: ConfigMap
 metadata:
   creationTimestamp: null

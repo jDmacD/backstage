@@ -38,6 +38,11 @@ backend.add(import('@backstage/plugin-catalog-backend'));
 // https://backstage.io/docs/integrations/azure/org/
 backend.add(import('@backstage/plugin-catalog-backend-module-msgraph'));
 
+// Add the Kubernetes Ingestor plugin
+// https://terasky-oss.github.io/backstage-plugins/plugins/kubernetes-ingestor/backend/install/#1-add-the-packages
+backend.add(import('@terasky/backstage-plugin-kubernetes-ingestor'));
+backend.add(import('@terasky/backstage-plugin-scaffolder-backend-module-terasky-utils'));
+
 backend.add(
   import('@backstage/plugin-catalog-backend-module-scaffolder-entity-model'),
 );

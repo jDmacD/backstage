@@ -48,6 +48,8 @@
     "@backstage/plugin-techdocs-backend": "^2.1.0",
     "@roadiehq/backstage-plugin-argo-cd-backend": "^4.4.2",
     "@roadiehq/scaffolder-backend-module-utils": "^4.0.3",
+    "@terasky/backstage-plugin-kubernetes-ingestor": "^2.3.0",
+    "@terasky/backstage-plugin-scaffolder-backend-module-terasky-utils": "^1.8.2",
     "app": "link:../app",
     "better-sqlite3": "^12.0.0",
     "node-gyp": "^10.0.0",

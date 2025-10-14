@@ -15,3 +15,12 @@ metadata:
 spec:
   type: team
   children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: kubernetes-auto-ingested
+spec:
+  type: team
+  children: []
+
