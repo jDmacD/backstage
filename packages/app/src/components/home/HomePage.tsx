@@ -17,10 +17,8 @@ import {
 } from '@backstage/plugin-home';  
 import { Content, Page, InfoCard } from '@backstage/core-components';  
 import { Grid, makeStyles } from '@material-ui/core';  
-import React from 'react';  
 import { SearchContextProvider } from '@backstage/plugin-search-react';  
-import { HomePageSearchBar } from '@backstage/plugin-search';  
-import { Warning } from '@material-ui/icons';  
+import { HomePageSearchBar } from '@backstage/plugin-search';
 
 // Styles
 const useStyles = makeStyles(theme => ({  
@@ -46,22 +44,6 @@ const useLogoStyles = makeStyles(theme => ({
   },  
   path: {  
     fill: '#7df3e1',  
-  },  
-}));  
-  
-const useBannerStyles = makeStyles(theme => ({  
-  container: {  
-    backgroundColor: theme.palette.warning.light,  
-    color: theme.palette.warning.contrastText,  
-    padding: theme.spacing(2),  
-    display: 'flex',  
-    alignItems: 'center',  
-    justifyContent: 'center',  
-    borderRadius: 5,  
-    marginTop: theme.spacing(3),  
-  },  
-  icon: {  
-    marginRight: theme.spacing(1),  
   },  
 }));  
     
