@@ -118,11 +118,17 @@ catalog:
   providers:
     github:
       wildcardProviderId:
-        organization: 'jDmacD' # string
+        organization: 'jDmacD'
         catalogPath: '/**/catalog-info.yaml'
-        filters: # optional filters
-          branch: 'main' # optional string
-          repository: 'catalogue' # optional Regex
+        filters:
+          branch: 'main'
+          repository: 'catalogue'
+      wildcardEntityId:
+        organization: 'jDmacD'
+        catalogPath: '/entities/**/*.yaml'
+        filters:
+          branch: 'main'
+          repository: 'backstage'
           
     microsoftGraphOrg:
       default:
