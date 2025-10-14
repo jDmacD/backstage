@@ -163,6 +163,12 @@ kubernetes:
     - group: 'gateway.networking.k8s.io'
       apiVersion: 'v1'
       plural: 'httproutes'
+    - group: 'postgresql.cnpg.io'
+      apiVersion: 'v1'
+      plural: 'clusters'
+    - group: 'postgresql.cnpg.io'
+      apiVersion: 'v1'
+      plural: 'databases'
 
 
 # see https://backstage.io/docs/permissions/getting-started for more on the permission framework
