@@ -190,9 +190,9 @@ kubernetesIngestor:
   # Resource mapping configuration
   mappings:
     namespaceModel: 'cluster'
-    nameModel: 'name-cluster'
+    nameModel: 'name-kind'
     titleModel: 'name'
-    systemModel: 'default'
+    systemModel: 'namespace'
     referencesNamespaceModel: 'default'
 
   # Component ingestion settings
@@ -205,9 +205,24 @@ kubernetesIngestor:
       - kube-public
       - kube-system
     customWorkloadTypes:
-      - group: pkg.crossplane.io
-        apiVersion: v1
-        plural: providers
+      - group: 'argoproj.io'
+        apiVersion: 'v1alpha1'
+        plural: 'applications'
+      # - group: 'argoproj.io'
+      #   apiVersion: 'v1alpha1'
+      #   plural: 'applicationsets'
+      # - group: 'gateway.networking.k8s.io'
+      #   apiVersion: 'v1'
+      #   plural: 'gateways'
+      # - group: 'gateway.networking.k8s.io'
+      #   apiVersion: 'v1'
+      #   plural: 'httproutes'
+      # - group: 'postgresql.cnpg.io'
+      #   apiVersion: 'v1'
+      #   plural: 'clusters'
+      # - group: 'postgresql.cnpg.io'
+      #   apiVersion: 'v1'
+      #   plural: 'databases'
 
   # Crossplane integration
   crossplane:
