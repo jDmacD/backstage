@@ -49,7 +49,7 @@ data:
             - allow: [User, Group]
   app-config.yaml: |-
     app:
-      title: Scaffolded Backstage App
+      title: A place for all your things
       baseUrl: http://localhost:3000
     organization:
       name: JTEC
