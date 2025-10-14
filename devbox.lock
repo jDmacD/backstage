@@ -1,67 +1,67 @@
 {
   "lockfile_version": "1",
   "packages": {
-    "commitizen@4.8.3": {
-      "last_modified": "2025-09-18T16:33:27Z",
-      "resolved": "github:NixOS/nixpkgs/f4b140d5b253f5e2a1ff4e5506edbf8267724bde#commitizen",
+    "commitizen@4.9.1": {
+      "last_modified": "2025-09-21T00:54:27Z",
+      "resolved": "github:NixOS/nixpkgs/51c8f9cfaae8306d135095bcdb3df9027f95542d#commitizen",
       "source": "devbox-search",
-      "version": "4.8.3",
+      "version": "4.9.1",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/1v81p91n1jq8fgfpv3a0qni2mncjysp8-python3.13-commitizen-4.8.3",
+              "path": "/nix/store/z59b6vnbw5wnhm2w670r0kj0gr8k59lg-python3.13-commitizen-4.9.1",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/0h8vxb6n5drznwxikz0jzsrd77sg3sjv-python3.13-commitizen-4.8.3-dist"
+              "path": "/nix/store/mygdsnyq77kwbsyxa6gnklbmjy428zvn-python3.13-commitizen-4.9.1-dist"
             }
           ],
-          "store_path": "/nix/store/1v81p91n1jq8fgfpv3a0qni2mncjysp8-python3.13-commitizen-4.8.3"
+          "store_path": "/nix/store/z59b6vnbw5wnhm2w670r0kj0gr8k59lg-python3.13-commitizen-4.9.1"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/llr4gy3v48kz14vkgygw85h38mf3j1pd-python3.13-commitizen-4.8.3",
+              "path": "/nix/store/hkl82mzhsb5n5kdg4y7xylc76qd5wg1a-python3.13-commitizen-4.9.1",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/z10an4kqg3b4kjghjw60dssrl5zz6hb0-python3.13-commitizen-4.8.3-dist"
+              "path": "/nix/store/c2v7fkbirgkz01j0w4hbz9s4skw995fr-python3.13-commitizen-4.9.1-dist"
             }
           ],
-          "store_path": "/nix/store/llr4gy3v48kz14vkgygw85h38mf3j1pd-python3.13-commitizen-4.8.3"
+          "store_path": "/nix/store/hkl82mzhsb5n5kdg4y7xylc76qd5wg1a-python3.13-commitizen-4.9.1"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/73jwnprga8kx3hh9l0c1n3syl6caw0nz-python3.13-commitizen-4.8.3",
+              "path": "/nix/store/3qz06jvanbmfazp88h7rhd7lhbc7kvq8-python3.13-commitizen-4.9.1",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/addbrib0rlya3gnqzmbfkgx58105l5an-python3.13-commitizen-4.8.3-dist"
+              "path": "/nix/store/p0fgb91znnkb1771srzkq6wxz2xfcn5d-python3.13-commitizen-4.9.1-dist"
             }
           ],
-          "store_path": "/nix/store/73jwnprga8kx3hh9l0c1n3syl6caw0nz-python3.13-commitizen-4.8.3"
+          "store_path": "/nix/store/3qz06jvanbmfazp88h7rhd7lhbc7kvq8-python3.13-commitizen-4.9.1"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/x8q0kgc9dpqijbhy6lzjydxff9f9kg67-python3.13-commitizen-4.8.3",
+              "path": "/nix/store/91zsx8xabyaf4c4bj3q4j5x8n6h98h3q-python3.13-commitizen-4.9.1",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/r3kx5vm7fg0z2nlam20p6l8zc6fyd52r-python3.13-commitizen-4.8.3-dist"
+              "path": "/nix/store/dxxqk4v5lv85dzay33v7v66z5viraf30-python3.13-commitizen-4.9.1-dist"
             }
           ],
-          "store_path": "/nix/store/x8q0kgc9dpqijbhy6lzjydxff9f9kg67-python3.13-commitizen-4.8.3"
+          "store_path": "/nix/store/91zsx8xabyaf4c4bj3q4j5x8n6h98h3q-python3.13-commitizen-4.9.1"
         }
       }
     },
