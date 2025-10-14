@@ -10,7 +10,7 @@
   "shell": {
     "init_hook": [
       "export BWS_SECRET=$(bws secret get 9644eb16-81bf-4b8e-8661-b3730174afba | jq -rc '.value | fromjson')",
-      "export KUBERNETES_TOKEN=$(kubectl create token backstage-viewer -n default --duration=8760h)",
+      "export KUBERNETES_TOKEN=$(kubectl create token backstage -n backstage --duration=8760h)",
       "export ARGOCD_USERNAME=$(echo $BWS_SECRET | jq -r .ARGOCD_USERNAME)",
       "export ARGOCD_PASSWORD=$(echo $BWS_SECRET | jq -r .ARGOCD_PASSWORD)",
       "export GITHUB_TOKEN=$(echo $BWS_SECRET | jq -r .GITHUB_TOKEN)",
