@@ -1,16 +1,15 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos: 
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
-    hooks: []
-      # - id: generate-configmap
-      #   name: Generate configMap
-      #   description: Generate kubernetes configmap from backstage config files
-      #   entry: devbox
-      #   language: system
-      #   files: ^(app-config.yaml|app-config.production.yaml)$
-      #   types: [file]
-      #   args:
-      #     - run
-      #     - config-gen
+  - repo: local
+    hooks:
+      - id: generate-configmap
+        name: Generate configMap
+        description: Generate kubernetes configmap from backstage config files
+        entry: devbox
+        language: system
+        files: ^(app-config.yaml|app-config.production.yaml)$
+        types: [file]
+        args:
+          - run
+          - config-gen
