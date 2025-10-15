@@ -189,10 +189,10 @@ argocd:
 kubernetesIngestor:
   # Resource mapping configuration
   mappings:
-    namespaceModel: 'cluster'
-    nameModel: 'name-kind'
-    titleModel: 'name'
-    systemModel: 'namespace'
+    namespaceModel: 'cluster' # cluster, namespace, default
+    nameModel: 'name-kind' # name-cluster, name-namespace, name-kind, name
+    titleModel: 'name-cluster' # name, name-cluster, name-namespace
+    systemModel: 'default' # cluster, namespace, cluster-namespace, default
     referencesNamespaceModel: 'default'
 
   # Component ingestion settings
@@ -204,6 +204,7 @@ kubernetesIngestor:
     excludedNamespaces:
       - kube-public
       - kube-system
+    disableDefaultWorkloadTypes: true
     customWorkloadTypes:
       - group: 'argoproj.io'
         apiVersion: 'v1alpha1'
