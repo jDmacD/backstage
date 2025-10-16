@@ -28,6 +28,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import { MyGroupsSidebarItem } from '@backstage/plugin-org';
 import GroupIcon from '@material-ui/icons/People';
 import { NotificationsSidebarItem } from '@backstage/plugin-notifications';
+import { HeadlampIcon } from '@headlamp-k8s/backstage-plugin-headlamp';  
 // https://backstage.io/docs/getting-started/homepage/
 import CategoryIcon from '@material-ui/icons/Category';
 import BuildIcon from '@material-ui/icons/Build';
@@ -78,6 +79,7 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
           icon={GroupIcon}
         />
         <SidebarItem icon={ExtensionIcon} to="api-docs" text="APIs" />
+        <SidebarItem icon={HeadlampIcon} to="headlamp" text="Headlamp" />
         <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
         <SidebarItem icon={CreateComponentIcon} to="create" text="Create..." />
         {/* End global nav */}

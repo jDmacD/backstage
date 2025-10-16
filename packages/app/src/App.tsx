@@ -42,6 +42,8 @@ import { microsoftAuthApiRef } from '@backstage/core-plugin-api';
 // https://backstage.io/docs/getting-started/homepage/
 import { HomepageCompositionRoot } from '@backstage/plugin-home';
 import { HomePage } from './components/home/HomePage';
+// https://github.com/headlamp-k8s/backstage-plugin/tree/main/headlamp#3-add-headlamp-to-the-sidebar
+import { HeadlampPage } from '@headlamp-k8s/backstage-plugin-headlamp';
 
 // must be last
 import { DevToolsPage } from '@backstage/plugin-devtools';
@@ -127,6 +129,7 @@ const routes = (
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
     <Route path="/notifications" element={<NotificationsPage />} />
+    <Route path="/headlamp" element={<HeadlampPage />} />
     <Route path="/devtools" element={<DevToolsPage />} >
       {customDevToolsPage}
     </Route>

@@ -79,6 +79,8 @@ backend.add(import('@backstage/plugin-signals-backend'));
 backend.add(import('@roadiehq/backstage-plugin-argo-cd-backend'));
 backend.add(import('@roadiehq/scaffolder-backend-module-utils'));
 
+// https://github.com/headlamp-k8s/backstage-plugin/blob/main/headlamp-backend/README.md
+backend.add(import('@headlamp-k8s/backstage-plugin-headlamp-backend'));
 // https://github.com/backstage/backstage/blob/master/plugins/devtools-backend/README.md
 backend.add(import('@backstage/plugin-devtools-backend'));
 

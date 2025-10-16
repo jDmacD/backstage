@@ -150,6 +150,10 @@ kubernetes:
           skipTLSVerify: true
           skipMetricsLookup: false
           serviceAccountToken: ${KUBERNETES_TOKEN}
+          dashboardApp: headlamp
+          dashboardParameters:
+            internal: true
+            headlampRoute: /headlamp
   customResources:
     - group: 'argoproj.io'
       apiVersion: 'v1alpha1'
