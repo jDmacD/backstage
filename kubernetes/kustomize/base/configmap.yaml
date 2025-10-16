@@ -225,9 +225,9 @@ data:
     kubernetesIngestor:
       # Resource mapping configuration
       mappings:
-        namespaceModel: 'cluster' # cluster, namespace, default
+        namespaceModel: 'default' # cluster, namespace, default
         nameModel: 'name-kind' # name-cluster, name-namespace, name-kind, name
-        titleModel: 'name-cluster' # name, name-cluster, name-namespace
+        titleModel: 'name' # name, name-cluster, name-namespace
         systemModel: 'default' # cluster, namespace, cluster-namespace, default
         referencesNamespaceModel: 'default'
       # Component ingestion settings
