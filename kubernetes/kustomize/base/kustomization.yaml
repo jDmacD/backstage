@@ -17,4 +17,4 @@ labels:
 # https://hub.docker.com/r/backstage/backstage/tags
 images:
   - name: ghcr.io/jdmacd/backstage
-    newTag: 2.1.5
+    newTag: 2.2.0
