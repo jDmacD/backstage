@@ -25,6 +25,9 @@ backend:
     origin: http://localhost:3000
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
+  reading:
+    allow:
+      - host: raw.githubusercontent.com
   # This is for local development only, it is not recommended to use this in production
   # The production database configuration is stored in app-config.production.yaml
   database:
@@ -117,12 +120,18 @@ catalog:
 
   providers:
     github:
-      wildcardEntityId:
+      backstageEntities:
         organization: 'jDmacD'
         catalogPath: '/**/*.yaml'
         filters:
           branch: 'main'
           repository: 'backstage-entities'
+      catalogueEntities:
+        organization: 'jDmacD'
+        catalogPath: '/**/catalog-info.yaml'
+        filters:
+          branch: 'main'
+          repository: 'catalogue'
           
     microsoftGraphOrg:
       default:
