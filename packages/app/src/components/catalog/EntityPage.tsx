@@ -69,9 +69,8 @@ import {
   isGithubActionsAvailable,
 } from '@backstage-community/plugin-github-actions';
 
-import {
-  EntityGrafanaAlertsCard,
-} from '@k-phoen/backstage-plugin-grafana';
+// https://github.com/backstage/community-plugins/blob/main/workspaces/grafana/plugins/grafana/docs/alerts-on-component-page.md
+import { EntityGrafanaAlertsCard } from '@backstage-community/plugin-grafana';
 
 const techdocsContent = (
   <EntityTechdocsContent>

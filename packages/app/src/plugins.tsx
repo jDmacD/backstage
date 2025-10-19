@@ -1,2 +1,2 @@
-// https://github.com/K-Phoen/backstage-plugin-grafana/blob/main/docs/setup.md
-export { grafanaPlugin } from '@k-phoen/backstage-plugin-grafana';
+// https://github.com/backstage/community-plugins/blob/main/workspaces/grafana/plugins/grafana/docs/setup.md
+export { grafanaPlugin } from '@backstage-community/plugin-grafana';
