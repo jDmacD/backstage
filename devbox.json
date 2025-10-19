@@ -24,6 +24,9 @@
       "export AWS_REGION=$(echo $BWS_SECRET | jq -r .AWS_REGION)",
       "export AWS_BUCKET=$(echo $BWS_SECRET | jq -r .AWS_BUCKET)",
       "export AWS_ENDPOINT=$(echo $BWS_SECRET | jq -r .AWS_ENDPOINT)",
+      "export GRAFANA_PUBLIC_URL=$(echo $BWS_SECRET | jq -r .GRAFANA_PUBLIC_URL)",
+      "export GRAFANA_SVC_URL=$(echo $BWS_SECRET | jq -r .GRAFANA_SVC_URL)",
+      "export GRAFANA_TOKEN=$(echo $BWS_SECRET | jq -r .GRAFANA_TOKEN)",
       "export NODE_OPTIONS=--no-node-snapshot" 
     ],
     "scripts": {

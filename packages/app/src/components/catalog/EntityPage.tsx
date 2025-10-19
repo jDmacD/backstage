@@ -69,6 +69,10 @@ import {
   isGithubActionsAvailable,
 } from '@backstage-community/plugin-github-actions';
 
+import {
+  EntityGrafanaAlertsCard,
+} from '@k-phoen/backstage-plugin-grafana';
+
 const techdocsContent = (
   <EntityTechdocsContent>
     <TechDocsAddons>
@@ -151,6 +155,12 @@ const overviewContent = (
     </Grid>
     <Grid item md={6} xs={12}>
       <EntityCatalogGraphCard variant="gridItem" height={400} />
+    </Grid>
+
+    <Grid item md={6}>
+      {/* Grafana alert card start */}
+      <EntityGrafanaAlertsCard />
+      {/* Grafana alert card end */}
     </Grid>
 
     <Grid item md={4} xs={12}>
