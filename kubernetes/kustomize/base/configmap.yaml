@@ -167,10 +167,6 @@ data:
           target: ../../examples/template/template.yaml
           rules:
             - allow: [Template]
-        - type: file
-          target: ../../scaffolds/argocd-application/template.yaml
-          rules:
-            - allow: [Template]
         # Local example organizational data
         - type: file
           target: ../../examples/org.yaml
@@ -181,6 +177,12 @@ data:
           backstageEntities:
             organization: 'jDmacD'
             catalogPath: '/**/*.yaml'
+            filters:
+              branch: 'main'
+              repository: 'backstage-entities'
+          backstageTemplates:
+            organization: 'jDmacD'
+            catalogPath: '/scaffolds/**/template.yaml'
             filters:
               branch: 'main'
               repository: 'backstage-entities'
@@ -263,7 +265,7 @@ data:
       components:
         enabled: true
         taskRunner:
-          frequency: 10
+          frequency: 120
           timeout: 600
         excludedNamespaces:
           - kube-public
