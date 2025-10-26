@@ -176,7 +176,7 @@ data:
         github:
           backstageEntities:
             organization: 'jDmacD'
-            catalogPath: '/**/*.yaml'
+            catalogPath: '/entities/**/*.yaml'
             filters:
               branch: 'main'
               repository: 'backstage-entities'
