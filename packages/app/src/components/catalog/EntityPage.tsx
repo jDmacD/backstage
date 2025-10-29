@@ -146,19 +146,17 @@ const overviewContent = (
       <EntityAboutCard variant="gridItem" />
     </Grid>
     <Grid item md={6}>
-      <EntityLinksCard />
-    </Grid>
-    <Grid item md={6} xs={12}>
-      <EntityCatalogGraphCard variant="gridItem" height={400} />
-    </Grid>
-
-    <Grid item md={10}>
-      {/* Grafana alert card start */}
-      <EntityGrafanaAlertsCard />
-      {/* Grafana alert card end */}
+      <Grid container spacing={3} direction="column">
+        <Grid item>
+          <EntityLinksCard />
+        </Grid>
+        <Grid item>
+          <EntityCatalogGraphCard variant="gridItem" height={400} />
+        </Grid>
+      </Grid>
     </Grid>
 
-    <Grid item md={8} xs={12}>
+    <Grid item md={12} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
   </Grid>
@@ -186,6 +184,16 @@ const serviceEntityPage = (
       <Grid container spacing={3} alignItems="stretch">
         <Grid item xs={12}>
           <EntityArgoCDOverviewCard />
+        </Grid>
+      </Grid>
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/grafana" title="Grafana">
+      <Grid container spacing={3} alignItems="stretch">
+        <Grid item md={10}>
+          {/* Grafana alert card start */}
+          <EntityGrafanaAlertsCard />
+          {/* Grafana alert card end */}
         </Grid>
       </Grid>
     </EntityLayout.Route>
@@ -240,6 +248,16 @@ const websiteEntityPage = (
       <Grid container spacing={3} alignItems="stretch">
         <Grid item xs={12}>
           <EntityArgoCDOverviewCard />
+        </Grid>
+      </Grid>
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/grafana" title="Grafana">
+      <Grid container spacing={3} alignItems="stretch">
+        <Grid item md={10}>
+          {/* Grafana alert card start */}
+          <EntityGrafanaAlertsCard />
+          {/* Grafana alert card end */}
         </Grid>
       </Grid>
     </EntityLayout.Route>
