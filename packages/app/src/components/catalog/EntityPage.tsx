@@ -142,29 +142,22 @@ const entityWarningContent = (
 const overviewContent = (
   <Grid container spacing={3} alignItems="stretch">
     {entityWarningContent}
-    <EntitySwitch>
-      <EntitySwitch.Case if={e => Boolean(isArgocdAvailable(e))}>
-        <Grid item xs={12}>
-          <EntityArgoCDOverviewCard />
-        </Grid>
-      </EntitySwitch.Case>
-    </EntitySwitch>
     <Grid item md={6}>
       <EntityAboutCard variant="gridItem" />
+    </Grid>
+    <Grid item md={6}>
+      <EntityLinksCard />
     </Grid>
     <Grid item md={6} xs={12}>
       <EntityCatalogGraphCard variant="gridItem" height={400} />
     </Grid>
 
-    <Grid item md={6}>
+    <Grid item md={10}>
       {/* Grafana alert card start */}
       <EntityGrafanaAlertsCard />
       {/* Grafana alert card end */}
     </Grid>
 
-    <Grid item md={4} xs={12}>
-      <EntityLinksCard />
-    </Grid>
     <Grid item md={8} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
@@ -184,9 +177,17 @@ const serviceEntityPage = (
     <EntityLayout.Route
       path="/kubernetes"
       title="Kubernetes"
-      // if={isKubernetesAvailable}
+      if={isKubernetesAvailable}
     >
       <EntityKubernetesContent />
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/argocd" title="Argo CD" if={e => Boolean(isArgocdAvailable(e))}>
+      <Grid container spacing={3} alignItems="stretch">
+        <Grid item xs={12}>
+          <EntityArgoCDOverviewCard />
+        </Grid>
+      </Grid>
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/api" title="API">
@@ -233,6 +234,14 @@ const websiteEntityPage = (
       if={isKubernetesAvailable}
     >
       <EntityKubernetesContent />
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/argocd" title="Argo CD" if={e => Boolean(isArgocdAvailable(e))}>
+      <Grid container spacing={3} alignItems="stretch">
+        <Grid item xs={12}>
+          <EntityArgoCDOverviewCard />
+        </Grid>
+      </Grid>
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/dependencies" title="Dependencies">
