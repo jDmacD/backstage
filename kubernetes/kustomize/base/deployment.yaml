@@ -16,7 +16,8 @@ spec:
       serviceAccountName: backstage
       containers:
         - name: backstage
-          image: ghcr.io/jdmacd/backstage:main
+          # image: ghcr.io/jdmacd/backstage:main
+          image: jdmacd/backstage:0.0.1
           ports:
             - containerPort: 7007
               name: http
