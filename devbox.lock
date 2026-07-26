@@ -1,67 +1,53 @@
 {
   "lockfile_version": "1",
   "packages": {
-    "commitizen@4.8.3": {
-      "last_modified": "2025-09-18T16:33:27Z",
-      "resolved": "github:NixOS/nixpkgs/f4b140d5b253f5e2a1ff4e5506edbf8267724bde#commitizen",
+    "commitizen@4.16.5": {
+      "last_modified": "2026-07-23T05:10:05Z",
+      "resolved": "github:NixOS/nixpkgs/7525d999cd850b9a488817abc89c75dc733acf17#commitizen",
       "source": "devbox-search",
-      "version": "4.8.3",
+      "version": "4.16.5",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/1v81p91n1jq8fgfpv3a0qni2mncjysp8-python3.13-commitizen-4.8.3",
+              "path": "/nix/store/4pjm48h7mydd8ydw2ckfrf1bpd3jpb2m-python3.14-commitizen-4.16.5",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/0h8vxb6n5drznwxikz0jzsrd77sg3sjv-python3.13-commitizen-4.8.3-dist"
+              "path": "/nix/store/rqv4v6g9vlhswbpcfmahwjjxrvcbi8qh-python3.14-commitizen-4.16.5-dist"
             }
           ],
-          "store_path": "/nix/store/1v81p91n1jq8fgfpv3a0qni2mncjysp8-python3.13-commitizen-4.8.3"
+          "store_path": "/nix/store/4pjm48h7mydd8ydw2ckfrf1bpd3jpb2m-python3.14-commitizen-4.16.5"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/llr4gy3v48kz14vkgygw85h38mf3j1pd-python3.13-commitizen-4.8.3",
+              "path": "/nix/store/dnnpqd0wywa45lfpi0klp1pfqw8qv0ka-python3.14-commitizen-4.16.5",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/z10an4kqg3b4kjghjw60dssrl5zz6hb0-python3.13-commitizen-4.8.3-dist"
+              "path": "/nix/store/21h5zggcpyvq7z5qmzzwcz9gjdx2vnh3-python3.14-commitizen-4.16.5-dist"
             }
           ],
-          "store_path": "/nix/store/llr4gy3v48kz14vkgygw85h38mf3j1pd-python3.13-commitizen-4.8.3"
-        },
-        "x86_64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/73jwnprga8kx3hh9l0c1n3syl6caw0nz-python3.13-commitizen-4.8.3",
-              "default": true
-            },
-            {
-              "name": "dist",
-              "path": "/nix/store/addbrib0rlya3gnqzmbfkgx58105l5an-python3.13-commitizen-4.8.3-dist"
-            }
-          ],
-          "store_path": "/nix/store/73jwnprga8kx3hh9l0c1n3syl6caw0nz-python3.13-commitizen-4.8.3"
+          "store_path": "/nix/store/dnnpqd0wywa45lfpi0klp1pfqw8qv0ka-python3.14-commitizen-4.16.5"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/x8q0kgc9dpqijbhy6lzjydxff9f9kg67-python3.13-commitizen-4.8.3",
+              "path": "/nix/store/na4kvryd9lsn5mvzyf7rgr09ilgv3qr4-python3.14-commitizen-4.16.5",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/r3kx5vm7fg0z2nlam20p6l8zc6fyd52r-python3.13-commitizen-4.8.3-dist"
+              "path": "/nix/store/1xy0z1gx9px0ay5c837irivhs1sqli1x-python3.14-commitizen-4.16.5-dist"
             }
           ],
-          "store_path": "/nix/store/x8q0kgc9dpqijbhy6lzjydxff9f9kg67-python3.13-commitizen-4.8.3"
+          "store_path": "/nix/store/na4kvryd9lsn5mvzyf7rgr09ilgv3qr4-python3.14-commitizen-4.16.5"
         }
       }
     },
@@ -71,7 +57,7 @@
     },
     "nodejs_24@latest": {
       "last_modified": "2025-09-21T00:54:27Z",
-      "plugin_version": "0.0.2",
+      "plugin_version": "0.0.4",
       "resolved": "github:NixOS/nixpkgs/51c8f9cfaae8306d135095bcdb3df9027f95542d#nodejs_24",
       "source": "devbox-search",
       "version": "24.8.0",
@@ -216,7 +202,7 @@
     },
     "python@latest": {
       "last_modified": "2025-05-16T20:19:48Z",
-      "plugin_version": "0.0.4",
+      "plugin_version": "0.0.5",
       "resolved": "github:NixOS/nixpkgs/12a55407652e04dcf2309436eb06fef0d3713ef3#python313",
       "source": "devbox-search",
       "version": "3.13.3",
