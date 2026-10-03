@@ -50,8 +50,8 @@
     "@material-ui/icons": "^4.9.1",
     "@roadiehq/backstage-plugin-argo-cd": "^2.11.0",
     "backstage-plugin-techdocs-addon-mermaid": "^0.24.0",
-    "react": "^18.0.2",
-    "react-dom": "^18.0.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0"
   },
