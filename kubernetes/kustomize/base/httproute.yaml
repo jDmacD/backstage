@@ -7,10 +7,10 @@ metadata:
     external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
 spec:
   parentRefs:
-  - name: cloudflare
+  - name: external
     kind: Gateway
     group: gateway.networking.k8s.io
-    namespace: kube-system
+    namespace: envoy-gateway
     sectionName: https
   hostnames:
   - "backstage.jtec.xyz"
