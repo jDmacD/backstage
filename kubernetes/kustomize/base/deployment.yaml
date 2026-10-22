@@ -21,6 +21,10 @@ spec:
           ports:
             - containerPort: 7007
               name: http
+          resources:
+            requests:
+              cpu: 250m
+              memory: 512Mi
           volumeMounts:
             - name: config
               mountPath: /app/app-config.production.yaml
