@@ -181,7 +181,7 @@ kubernetes:
   clusterLocatorMethods:
     - type: config
       clusters:
-        - url: https://tpi01.lan:6443
+        - url: https://pi05.lan:6443
           name: turing # You can use any name you want
           authProvider: serviceAccount
           skipTLSVerify: true
